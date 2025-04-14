@@ -1,0 +1,36 @@
+{
+    "storeItems": [
+        {
+            "title": "Item",
+            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum"
+        },
+        {
+            "title": "Item",
+            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum"
+        }
+    ],
+    "events": [
+        {
+            "title": "Event",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos maiores, tempora nisi, at facere deserunt vero explicabo beatae aliquid laborum eligendi, consequatur non voluptates aperiam! Necessitatibus harum ut illo quaerat?",
+            "effect": {
+                "money": -5,
+                "energy": -5,
+                "sanity": 5
+            }
+        },
+        {
+            "title": "Event",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos maiores, tempora nisi, at facere deserunt vero explicabo beatae aliquid laborum eligendi, consequatur non voluptates aperiam! Necessitatibus harum ut illo quaerat?",
+            "effect": {
+                "money": -5,
+                "energy": -5,
+                "sanity": 5
+            }
+        }
+    ],
+    "codes": [
+        "if (true) {\n  console.log('teste')\n}",
+        "const x = 5;"
+    ]
+}
