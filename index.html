@@ -14,19 +14,23 @@
             <section class="code-section">
                 <h2>Código</h2>
                 <div class="code-box">
-                    <h3>Código</h3>
-                    <code>code</code>
+                    <h3>Copie o Código</h3>
+                    <code>
+                        <pre>if (true) {
+    console.log("Teste")
+}</pre>
+                    </code>
                 </div>
                 <div class="code-div-input">
                     <label for="code-input">Digite o Código:</label>
-                    <input
-                        type="text"
+                    <textarea
                         id="code-input"
                         name="code-input"
                         placeholder="Código..."
-                    />
+                        rows="3"
+                    ></textarea>
                 </div>
-                <p>Códigos diários: 1/10</p>
+                <p class="code-amount"><span class="current-code-amount">1</span>/<span class="max-code-amount">5</span></p>
             </section>
             <section class="section-events">
                 <h2>Eventos</h2>
@@ -68,6 +72,7 @@
                     <h2>Loja</h2>
                     <div class="item">
                         <h3>Item</h3>
+                        <span>R$20,00</span>
                         <p>
                             Lorem, ipsum dolor sit amet consectetur adipisicing
                             elit. Neque totam fugiat quis aperiam rerum, illum
@@ -79,6 +84,7 @@
                     </div>
                     <div class="item">
                         <h3>Item</h3>
+                        <span>R$20,00</span>
                         <p>
                             Lorem, ipsum dolor sit amet consectetur adipisicing
                             elit. Neque totam fugiat quis aperiam rerum, illum

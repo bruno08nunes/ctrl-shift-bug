@@ -2,35 +2,53 @@
     "storeItems": [
         {
             "title": "Item",
-            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum"
+            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum",
+            "price": 20
         },
         {
             "title": "Item",
-            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum"
+            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum",
+            "price": 30
         }
     ],
     "events": [
         {
-            "title": "Event",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos maiores, tempora nisi, at facere deserunt vero explicabo beatae aliquid laborum eligendi, consequatur non voluptates aperiam! Necessitatibus harum ut illo quaerat?",
+            "title": "Deploy na Sexta!",
+            "text": "O sextou foi adiado! Algum colega fez o deploy na sexta e deu erro em produção. Agora você deve gastar seu fim de semana para resolver.",
             "effect": {
-                "money": -5,
-                "energy": -5,
-                "sanity": 5
+                "money": 5,
+                "energy": -15,
+                "sanity": -15
             }
         },
         {
             "title": "Event",
             "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos maiores, tempora nisi, at facere deserunt vero explicabo beatae aliquid laborum eligendi, consequatur non voluptates aperiam! Necessitatibus harum ut illo quaerat?",
-            "effect": {
-                "money": -5,
-                "energy": -5,
-                "sanity": 5
-            }
+            "actions": [
+                {
+                    "text": "Fazer X",
+                    "effect": {
+                        "money": -5,
+                        "energy": -5,
+                        "sanity": 5
+                    }
+                },
+                {
+                    "text": "Fazer Y",
+                    "effect": {
+                        "money": -5,
+                        "energy": -5,
+                        "sanity": 5
+                    }
+                }
+            ]
         }
     ],
     "codes": [
         "if (true) {\n  console.log('teste')\n}",
-        "const x = 5;"
+        "const x = 5;",
+        "A",
+        "B",
+        "C"
     ]
 }
