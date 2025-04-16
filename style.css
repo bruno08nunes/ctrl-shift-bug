@@ -101,6 +101,13 @@ h1, h2, h3, button {
     }
 }
 
+.no-events-message {
+    display: none;
+    &:last-child {
+        display: block;
+    }
+}
+
 .event {
     display: flex;
     flex-direction: column;

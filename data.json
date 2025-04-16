@@ -45,8 +45,6 @@
         }
     ],
     "codes": [
-        "if (true) {\n  console.log('teste')\n}",
-        "const x = 5;",
         "A",
         "B",
         "C"
