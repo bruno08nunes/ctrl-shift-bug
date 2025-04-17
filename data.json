@@ -18,7 +18,7 @@
             "effect": {
                 "money": 5,
                 "energy": -15,
-                "sanity": -15
+                "mentalHealth": -15
             }
         },
         {
@@ -30,7 +30,7 @@
                     "effect": {
                         "money": -5,
                         "energy": -5,
-                        "sanity": 5
+                        "mentalHealth": 5
                     }
                 },
                 {
@@ -38,7 +38,7 @@
                     "effect": {
                         "money": -5,
                         "energy": -5,
-                        "sanity": 5
+                        "mentalHealth": 5
                     }
                 }
             ]

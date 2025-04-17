@@ -28,22 +28,32 @@
                         rows="3"
                     ></textarea>
                 </div>
-                <p class="code-amount"><span class="current-code-amount">1</span>/<span class="max-code-amount">5</span></p>
+                <p class="code-amount">
+                    <span class="current-code-amount">1</span>/<span
+                        class="max-code-amount"
+                        >5</span
+                    >
+                </p>
             </section>
             <section class="section-events">
                 <h2>Eventos</h2>
-                <p class="no-events-message">Você não passou por nenhum evento ainda! Escreva mais códigos para passar por eventos.</p>
+                <p class="no-events-message">
+                    Você não passou por nenhum evento ainda! Escreva mais
+                    códigos para passar por eventos.
+                </p>
             </section>
             <div class="div-sections">
                 <ul class="section-tabs-menu">
                     <li>
-                        <button class="active" data-tab="store">Loja</button>
+                        <button class="active" data-tab="inventory">
+                            Inventário
+                        </button>
                     </li>
                     <li>
-                        <button data-tab="inventory">Inventário</button>
+                        <button data-tab="store">Loja</button>
                     </li>
                 </ul>
-                <section class="section-store active tab" data-tab="store">
+                <section class="section-store tab" data-tab="store">
                     <h2>Loja</h2>
                     <div class="item">
                         <h3>Item</h3>
@@ -70,14 +80,30 @@
                         <button>Comprar</button>
                     </div>
                 </section>
-                <section class="section-inventory tab" data-tab="inventory">
+                <section
+                    class="section-inventory tab active"
+                    data-tab="inventory"
+                >
                     <h2>Inventário</h2>
                     <article class="status-article">
                         <h3>Status</h3>
                         <div>
-                            <p>Energia: 100/100</p>
-                            <p>Saúde Mental: 100/100</p>
-                            <p>Dinheiro: 0$</p>
+                            <p>
+                                Energia:
+                                <span class="energy-status">100</span>
+                                /
+                                <span class="max-energy-status">100</span>
+                            </p>
+                            <p>
+                                Saúde Mental:
+                                <span class="mental-health-status">100</span
+                                >
+                                /
+                                <span class="max-mental-health-status"
+                                    >100</span
+                                >
+                            </p>
+                            <p>Dinheiro: <span class="money-status">R$ 0</span></p>
                         </div>
                     </article>
                     <article>

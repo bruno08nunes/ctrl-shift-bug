@@ -20,6 +20,9 @@ export const handleWriteCode = (e) => {
     const currentCodeAmount = +currentCodeAmountElement.textContent;
     const maxCodeAmount = +maxCodeAmountElement.textContent;
 
+    setTimeout(() => {
+        e.target.value = "";
+    }, 200)
     codes.updateCode();
 
     if (currentCodeAmount < maxCodeAmount) {
@@ -27,7 +30,7 @@ export const handleWriteCode = (e) => {
 
         return;
     }
-
+    
     currentCodeAmountElement.textContent = 1;
-    events.createEventElement();
+    events.createEventElement(e.target);
 };

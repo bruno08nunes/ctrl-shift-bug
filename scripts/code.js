@@ -1,8 +1,4 @@
-import { events } from "../scripts.js";
-
 const codeElement = document.querySelector("pre");
-const currentCodeAmountElement = document.querySelector(".current-code-amount");
-const maxCodeAmountElement = document.querySelector(".max-code-amount");
 
 export default class Codes {
     codes = [];
