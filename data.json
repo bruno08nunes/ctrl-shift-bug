@@ -1,11 +1,13 @@
 {
     "storeItems": [
         {
+            "id": "0",
             "title": "Item",
             "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum",
             "price": 20
         },
         {
+            "id": "1",
             "title": "Item",
             "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum",
             "price": 30

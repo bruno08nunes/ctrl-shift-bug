@@ -186,6 +186,19 @@ h1, h2, h3, button {
     }
 }
 
+.no-items-message {
+    display: none;
+    &:last-child {
+        display: block;
+    }
+}
+
+.inventory-article {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .item {
     border: 2px solid black;
     padding: 10px;
