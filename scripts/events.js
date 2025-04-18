@@ -9,12 +9,29 @@ export default class Events {
         return { index: randomIndex, event: this.events[randomIndex] };
     }
 
+    static applyEffectInStatus(effect) {
+        const money = effect.money;
+        const mentalHealth = effect.mentalHealth;
+        const energy = effect.energy;
+        const maxEnergy = effect.maxEnergy;
+        const maxMentalHealth = effect.maxMentalHealth;
+
+        Status.setAllStatus({
+            money,
+            mentalHealth,
+            energy,
+            maxEnergy,
+            maxMentalHealth,
+        });
+
+        Status.updateStatusElement();
+    }
+
     static createEventElement(inputElement) {
         let { event, index } = this.randomizeEvent(this.events);
 
         const allIndexesAreRandomized =
             this._alreadyRandomizedEventIndexes.length === this.events.length;
-
         if (allIndexesAreRandomized) {
             this._alreadyRandomizedEventIndexes.length = 0;
         }
@@ -31,45 +48,35 @@ export default class Events {
         this._alreadyRandomizedEventIndexes.push(index);
 
         if (event.effect) {
-            const money = event.effect.money;
-            const mentalHealth = event.effect.mentalHealth;
-            const energy = event.effect.energy;
-            const maxEnergy = event.effect.maxEnergy;
-            const maxMentalHealth = event.effect.maxMentalHealth;
-
-            Status.setAllStatus({
-                money,
-                mentalHealth,
-                energy,
-                maxEnergy,
-                maxMentalHealth,
-            });
-
-            Status.updateStatusElement();
+            this.applyEffectInStatus(event.effect);
         }
 
         if (event.actions) {
             inputElement.disabled = true;
         }
-
-        const handleEventSubmit = (effect, divButtons) => {
-            const money = effect.money;
-            const mentalHealth = effect.mentalHealth;
-            const energy = effect.energy;
-            const maxEnergy = effect.maxEnergy;
-            const maxMentalHealth = effect.maxMentalHealth;
-
-            Status.setAllStatus({
-                money,
-                mentalHealth,
-                energy,
-                maxEnergy,
-                maxMentalHealth,
-            });
-            Status.updateStatusElement();
-
+        
+        const handleEventSubmit = (action) => {
+            this.applyEffectInStatus(action.effect);
+            
             inputElement.disabled = false;
+            
+            const divButtons = document.querySelector(".event-buttons");
             divButtons.remove();
+            
+            const eventElement = document.querySelector(`.event:last-child`);
+            eventElement.innerHTML += `
+                <p><span class="result-event-title">Resultado: </span>${action.result}</p>
+                <div class="icons">
+                    ${
+                        Object.entries(action.effect).map(([effectName, effectValue]) => {
+                            return `<span class="icon">
+                                <img src="/assets/${effectName}-icon.svg" style="${window.matchMedia("(prefers-color-scheme: dark)").matches ? "filter: invert()" : ""}"> 
+                                ${effectValue > 0 ? `+${effectValue}` : effectValue}
+                            </span>`;
+                        })
+                    }
+                </div>
+            `;
         };
 
         const sectionEvents = document.querySelector(".section-events");
@@ -90,13 +97,12 @@ export default class Events {
             </div>
         `;
 
-        const divButtons = document.querySelector(".event-buttons");
         const buttons = document.querySelectorAll(".event-buttons button");
         buttons.forEach((button) =>
             button.addEventListener("click", (e) => {
-                const effect = event.actions[e.target.dataset.effect].effect
+                const action = event.actions[e.target.dataset.effect]
                 handleEventSubmit(
-                    effect, divButtons
+                    action
                 );
             })
         );

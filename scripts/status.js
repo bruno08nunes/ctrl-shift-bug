@@ -1,5 +1,5 @@
 export default class Status {
-    static money = 100;
+    static money = 3000;
 
     static mentalHealth = 50;
     static maxMentalHealth = 100;
@@ -9,7 +9,6 @@ export default class Status {
 
     static gameOver() {
         alert("Você perdeu");
-        location.reload();
     }
 
     static setAllStatus({

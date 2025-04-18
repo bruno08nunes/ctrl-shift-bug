@@ -7,11 +7,25 @@
     font-family: "Inter", sans-serif;
 }
 
+:root {
+    --background-color: white;
+    --color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #181A1B;
+        --color: rgba(255, 255, 255, 0.781);
+    }
+}
+
 body {
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background-color: var(--background-color);
+    color: var(--color);
 }
 
 h1 {
@@ -33,7 +47,7 @@ h1, h2, h3, button {
 
     & > * {
         flex: 1;
-        border: 2px solid black;
+        border: 2px solid currentColor;
         overflow-y: auto;
         border-radius: 15px;
         padding: 15px;
@@ -57,7 +71,7 @@ h1, h2, h3, button {
 .code-box {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border: 2px solid currentColor;
     border-radius: 5px;
     overflow: hidden;
     
@@ -88,6 +102,8 @@ h1, h2, h3, button {
         padding: 5px;
         font-size: 1em;
         resize: vertical;
+        color: inherit;
+        background-color: color-mix(in srgb, var(--background-color) 90%, white);
     }
 }
 
@@ -114,7 +130,7 @@ h1, h2, h3, button {
     flex-direction: column;
     gap: 15px;
     padding: 15px;
-    border: 2px solid black;
+    border: 3px solid currentColor;
     border-radius: 15px;
     
     & h3 {
@@ -123,21 +139,24 @@ h1, h2, h3, button {
     }
     
     & p {
-        text-indent: 10px;
         text-align: justify;
     }
-    
-    & div {
-        display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-        padding-right: 15px;
-    }
+}
 
+.event-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-right: 15px;
     & button {
         font-size: 1.5em;
         cursor: pointer;
     }
+}
+
+.result-event-title {
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 .div-sections {
@@ -145,6 +164,21 @@ h1, h2, h3, button {
         text-align: center;
         font-size: 2.8em;
     }
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid currentColor;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 .section-tabs-menu {
@@ -156,12 +190,12 @@ h1, h2, h3, button {
         font-size: 1.8em;
         padding: 5px;
         border: none;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid currentColor;
         background-color: transparent;
         cursor: pointer;
+        color: inherit;
 
         &.active {
-            border-color: red;
             color: red;
         }
     }
@@ -201,7 +235,7 @@ h1, h2, h3, button {
 }
 
 .item {
-    border: 2px solid black;
+    border: 2px solid currentColor;
     padding: 10px;
     border-radius: 15px;
     display: flex;
@@ -219,7 +253,7 @@ h1, h2, h3, button {
 }
 
 .status-article div {
-    border: 2px solid black;
+    border: 2px solid currentColor;
     padding: 10px;
     border-radius: 15px;
     display: flex;
