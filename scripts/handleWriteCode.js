@@ -1,4 +1,5 @@
-import { codes, events } from "../scripts.js";
+import Events from "./events.js";
+import Codes from "./code.js"
 
 const codeElement = document.querySelector("pre");
 const currentCodeAmountElement = document.querySelector(".current-code-amount");
@@ -23,7 +24,7 @@ export const handleWriteCode = (e) => {
     setTimeout(() => {
         e.target.value = "";
     }, 200)
-    codes.updateCode();
+    Codes.updateCode();
 
     if (currentCodeAmount < maxCodeAmount) {
         currentCodeAmountElement.textContent = currentCodeAmount + 1;
@@ -32,5 +33,5 @@ export const handleWriteCode = (e) => {
     }
     
     currentCodeAmountElement.textContent = 1;
-    events.createEventElement(e.target);
+    Events.createEventElement(e.target);
 };

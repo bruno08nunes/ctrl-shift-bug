@@ -1,38 +1,34 @@
 import Status from "./status.js";
 
 export default class Events {
-    alreadyRandomizedEventIndexes = [];
-    events = [];
+    static _alreadyRandomizedEventIndexes = [];
+    static events = [];
 
-    constructor(events) {
-        this.events = events;
-    }
-
-    randomizeEvent() {
+    static randomizeEvent() {
         const randomIndex = Math.floor(Math.random() * this.events.length);
         return { index: randomIndex, event: this.events[randomIndex] };
     }
 
-    createEventElement(inputElement) {
+    static createEventElement(inputElement) {
         let { event, index } = this.randomizeEvent(this.events);
 
         const allIndexesAreRandomized =
-            this.alreadyRandomizedEventIndexes.length === this.events.length;
+            this._alreadyRandomizedEventIndexes.length === this.events.length;
 
         if (allIndexesAreRandomized) {
-            this.alreadyRandomizedEventIndexes.length = 0;
+            this._alreadyRandomizedEventIndexes.length = 0;
         }
 
         let isIndexAlreadyRandomized =
-            this.alreadyRandomizedEventIndexes.includes(index);
+            this._alreadyRandomizedEventIndexes.includes(index);
 
         while (isIndexAlreadyRandomized) {
             ({ event, index } = this.randomizeEvent(this.events));
             isIndexAlreadyRandomized =
-                this.alreadyRandomizedEventIndexes.includes(index);
+                this._alreadyRandomizedEventIndexes.includes(index);
         }
 
-        this.alreadyRandomizedEventIndexes.push(index);
+        this._alreadyRandomizedEventIndexes.push(index);
 
         if (event.effect) {
             const money = event.effect.money;

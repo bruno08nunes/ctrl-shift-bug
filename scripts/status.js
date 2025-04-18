@@ -1,10 +1,10 @@
 export default class Status {
     static money = 100;
 
-    static mentalHealth = 100;
+    static mentalHealth = 50;
     static maxMentalHealth = 100;
 
-    static energy = 100;
+    static energy = 50;
     static maxEnergy = 100;
 
     static gameOver() {
@@ -24,6 +24,14 @@ export default class Status {
         Status.energy += energy;
         Status.maxEnergy += maxEnergy;
         Status.maxMentalHealth += maxMentalHealth;
+
+        if (Status.mentalHealth > Status.maxMentalHealth) {
+            Status.mentalHealth = Status.maxMentalHealth;
+        }
+
+        if (Status.energy > Status.maxEnergy) {
+            Status.energy = Status.maxEnergy;
+        }
 
         if (Status.money <= 0 || Status.mentalHealth <= 0 || Status.energy <= 0) {
             this.gameOver();
