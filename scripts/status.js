@@ -7,6 +7,11 @@ export default class Status {
     static energy = 100;
     static maxEnergy = 100;
 
+    static gameOver() {
+        alert("Você perdeu");
+        location.reload();
+    }
+
     static setAllStatus({
         money = 0,
         mentalHealth = 0,
@@ -19,6 +24,10 @@ export default class Status {
         Status.energy += energy;
         Status.maxEnergy += maxEnergy;
         Status.maxMentalHealth += maxMentalHealth;
+
+        if (Status.money <= 0 || Status.mentalHealth <= 0 || Status.energy <= 0) {
+            this.gameOver();
+        }
     }
 
     static updateStatusElement() {

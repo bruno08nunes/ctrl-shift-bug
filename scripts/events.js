@@ -104,5 +104,7 @@ export default class Events {
                 );
             })
         );
+
+        sectionEvents.scrollTop = sectionEvents.scrollHeight;
     }
 }

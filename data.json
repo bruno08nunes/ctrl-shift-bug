@@ -2,46 +2,287 @@
     "storeItems": [
         {
             "id": "0",
-            "title": "Item",
-            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum",
-            "price": 20
+            "title": "Café",
+            "text": "Nada como uma boa xícara de café para dar mais energia no trabalho! Ganhe +5 de energia máxima.",
+            "price": 20,
+            "effect": {
+                "maxEnergy": 5
+            }
         },
         {
             "id": "1",
-            "title": "Item",
-            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque totam fugiat quis aperiam rerum",
-            "price": 30
+            "title": "Fita de LED",
+            "text": "Todo setup de um dev precisa de umas luzinhas para deixar seu código melhor. Ganhe +5 de sanidade máxima",
+            "price": 30,
+            "effect": {
+                "maxMentalHealth": 5
+            }
         }
     ],
     "events": [
         {
+            "id": "0",
             "title": "Deploy na Sexta!",
-            "text": "O sextou foi adiado! Algum colega fez o deploy na sexta e deu erro em produção. Agora você deve gastar seu fim de semana para resolver.",
+            "text": "O sextou foi adiado! Algum colega fez o deploy na sexta e deu erro em produção. Agora você deve gastar seu fim de semana para resolver. Você perde 15 de energia e saúde mental.",
             "effect": {
-                "money": 5,
                 "energy": -15,
                 "mentalHealth": -15
             }
         },
         {
-            "title": "Event",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos maiores, tempora nisi, at facere deserunt vero explicabo beatae aliquid laborum eligendi, consequatur non voluptates aperiam! Necessitatibus harum ut illo quaerat?",
+            "id": "1",
+            "title": "A Amizade é Mágica!",
+            "text": "Seu LinkedIn está cheio de propostas para novas conexões. Isso te deixa motivado para novos trabalhos.",
+            "effect": {
+                "mentalHealth": 5
+            }
+        },
+        {
+            "id": "2",
+            "title": "Futebol de Sábado!",
+            "text": "Seus colegas te convidaram para um futebolzinho com churrasco nesse fim de semana. Você vai ou não?",
             "actions": [
                 {
-                    "text": "Fazer X",
+                    "text": "Vamos, lá!",
                     "effect": {
-                        "money": -5,
                         "energy": -5,
                         "mentalHealth": 5
-                    }
+                    },
+                    "result": "O fut te deixou com dor no corpo todo. Mas valeu a pena pela picanha!"
                 },
                 {
-                    "text": "Fazer Y",
+                    "text": "Não posso, perdão!",
                     "effect": {
-                        "money": -5,
-                        "energy": -5,
+                        "energy": 5,
+                        "mentalHealth": -5
+                    },
+                    "result": "Você fica em casa e descansa, mas ainda pensa no quão divertido poderia ter sido."
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Reunião ou E-mail?",
+            "text": "Você passou 2 horas numa reunião onde ninguém resolveu nada. Agora está atrasado no sprint e mais perto da insanidade!",
+            "effect": {
+                "energy": -5,
+                "mentalHealth": -10
+            }
+        },
+        {
+            "id": "4",
+            "title": "Bug Fantasma",
+            "text": "O sistema quebrou e ninguém sabe por quê. Você tentar resolver ou dobra e passa pro próximo?",
+            "actions": [
+                {
+                    "text": "Eu consigo!",
+                    "effect": {
+                        "mentalHealth": -10,
+                        "money": 1500
+                    },
+                    "result": "Você fica horas tentando encontrar o ponto e vírgula perdido, mas ganha uma boa recompensa pelo esforço."
+                },
+                {
+                    "text": "Passo a Vez!",
+                    "effect": {
+                        "mentalHealth": 5,
+                        "energy": 5
+                    },
+                    "result": "Você vê o seu colega com todo o mérito por ter achado o problema. Mas pelo menos você dormiu."
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "title": "Diferença entre Hardware e Software",
+            "text": "Você finalmente aprendeu a diferença entre esses dois conceitos. Infelizmente foi na base do chute.",
+            "effect": {
+                "money": -2500
+            }
+        },
+        {
+            "id": "6",
+            "title": "Pilha Cheia!",
+            "text": "Você encontrou na internet um código que resolveu seu problema! Você não sabe como funciona, mas funcionou. Isso que importa.",
+            "effect": {
+                "energy": 5,
+                "mentalHealth": 15
+            }
+        },
+        {
+            "id": "7",
+            "title": "Empurre-o do Prédio!",
+            "text": "O estagiário da empresa tentou fazer um novo commit. Como não deu certo, mandou um `git push --force`. O caos foi instaurado.",
+            "effect": {
+                "energy": -10,
+                "mentalHealth": -15
+            }
+        },
+        {
+            "id": "8",
+            "title": "TI - Tudo Incluso",
+            "text": "Sua tia lhe pergunta de novo se você \"conserta impressora\".",
+            "effect": {
+                "mentalHealth": -5
+            }
+        },
+        {
+            "id": "9",
+            "title": "Você Dormiu 8 Horas!",
+            "text": "Ninguém te ligou. Os cafés não tiveram um efeito tão forte. Você dormiu sem pensar em tarefas pendentes. É um milagre!",
+            "effect": {
+                "energy": 20,
+                "mentalHealth": 10
+            }
+        },
+        {
+            "id": "10",
+            "title": "Primo Inconveniente",
+            "text": "Seu primo pede para você fazer um site \"rapidinho\" para ele em troca de divulgação.",
+            "actions": [
+                {
+                    "text": "Aceitar (pela família... né?)",
+                    "effect": {
+                        "mentalHealth": -10,
+                        "energy": -10
+                    },
+                    "result": "Você passa o fim de semana inteiro ajustando pixel por pixel. Ele ainda reclama que não tem botão do WhatsApp."
+                },
+                {
+                    "text": "Recusar com carinho",
+                    "effect": {
                         "mentalHealth": 5
-                    }
+                    },
+                    "result": "Pela primeira vez, você escolheu sua sanidade mental."
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "title": "Sem Café!",
+            "text": "Você vai até a cozinha e percebe que o café acabou. O desespero bate. Como você pretende codar agora?",
+            "actions": [
+                {
+                    "text": "Pedir delivery de café",
+                    "effect": {
+                        "money": -10,
+                        "energy": 10
+                    },
+                    "result": "Você gasta mais do que devia, mas a cafeína salva seu dia. Pelo menos até o próximo bug."
+                },
+                {
+                    "text": "Seguir sem café",
+                    "effect": {
+                        "energy": -15
+                    },
+                    "result": "Você tenta ser forte, mas sua alma vai embora aos poucos com cada linha de código digitada."
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "title": "Atualizar ou Não Atualizar?",
+            "text": "Seu sistema está funcionando. Mas tem uma atualização do framework que promete melhorias inovadoras. Você sabe o risco que isso representa...",
+            "actions": [
+                {
+                    "text": "Atualizar",
+                    "effect": {
+                        "energy": -10,
+                        "mentalHealth": -10
+                    },
+                    "result": "Nada funciona mais, tudo quebrou. As futuras gerações irão te agradecer. As de hoje te amaldiçoam."
+                },
+                {
+                    "text": "Deixar como está",
+                    "effect": {
+                        "mentalHealth": 5
+                    },
+                    "result": "Você opta pela paz. Funciona? Sim. Vai durar? Provavelmente não. Mas por hoje, está tudo bem."
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "title": "Maratona de Série",
+            "text": "Você começa a ver \"só um episódio\" depois do expediente. Quando percebe, já são 3 da manhã.",
+            "actions": [
+                {
+                    "text": "Só mais umzinho...",
+                    "effect": {
+                        "energy": -20,
+                        "mentalHealth": 10
+                    },
+                    "result": "Você dorme 3 horas, mas sente que valeu a pena."
+                },
+                {
+                    "text": "Desligar e dormir cedo",
+                    "effect": {
+                        "energy": 10
+                    },
+                    "result": "Você acorda renovado no dia seguinte, mas fica curioso o dia inteiro sobre o que aconteceu com o personagem principal."
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "title": "Desabafar nas Redes",
+            "text": "Você teve um dia péssimo e pensa em postar nas redes sociais sobre a situação.",
+            "actions": [
+                {
+                    "text": "Postar",
+                    "effect": {
+                        "mentalHealth": 5
+                    },
+                    "result": "O post viraliza, você ganha 100 seguidores e um DM de recrutador. O algoritmo te ama."
+                },
+                {
+                    "text": "Melhor não, vai que o RH vê",
+                    "effect": {
+                        "mentalHealth": -5
+                    },
+                    "result": "Você guarda pra si, como sempre. Mas pelo menos ninguém do time vai perguntar na daily."
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "title": "Crush no Escritório",
+            "text": "Você começa a sentir algo pela colega de equipe. Ela comentou algo sobre \"manter o código limpo\" e você sentiu o coração compilar.",
+            "actions": [
+                {
+                    "text": "Puxar papo",
+                    "effect": {
+                        "mentalHealth": 10
+                    },
+                    "result": "Ela responde com um emoji simpático e o papo flui. Agora você olha pra daily com outros olhos."
+                },
+                {
+                    "text": "Guardar o Sentimento",
+                    "effect": {
+                        "mentalHealth": -5
+                    },
+                    "result": "Você se fecha no terminal e tenta ignorar o coração. Spoiler: não funciona. Para esquecer ela, só formatando..."
+                }
+            ]
+        },
+        {
+            "id": "16",
+            "title": "Assuntos Pendentes",
+            "text": "Sua ex manda mensagem dizendo que está pensando em aprender programação. Coincidência ou golpe emocional?",
+            "actions": [
+                {
+                    "text": "Indicar uns cursos e manter a distância",
+                    "effect": {
+                        "mentalHealth": 5
+                    },
+                    "result": "Você ajuda sem se envolver demais. Madurez emocional desbloqueada. Parabéns!"
+                },
+                {
+                    "text": "Aceitar \"ajudar\" e marcar um café",
+                    "effect": {
+                        "mentalHealth": -10
+                    },
+                    "result": "O café vira DR e você perde uma tarde inteira sem resolver nem bug nem sentimentos presos em um loop infinito."
                 }
             ]
         }
