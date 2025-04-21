@@ -1,5 +1,6 @@
 export default class Status {
-    static money = 3000;
+    static money = 1000;
+    static moneyBonus = 0;
 
     static mentalHealth = 50;
     static maxMentalHealth = 100;
@@ -7,8 +8,17 @@ export default class Status {
     static energy = 50;
     static maxEnergy = 100;
 
+    static week = 0;
+
+    static currentCodeAmount = 0;
+    static maxCodeAmount = 5;
+
     static gameOver() {
         alert("Você perdeu");
+    }
+
+    static winGame() {
+        alert("Você venceu");
     }
 
     static setAllStatus({
@@ -17,22 +27,31 @@ export default class Status {
         energy = 0,
         maxEnergy = 0,
         maxMentalHealth = 0,
+        moneyBonus = 0,
+        win = false
     }) {
-        Status.money += money;
-        Status.mentalHealth += mentalHealth;
-        Status.energy += energy;
-        Status.maxEnergy += maxEnergy;
-        Status.maxMentalHealth += maxMentalHealth;
+        this.moneyBonus += moneyBonus;
+        this.money += money + this.moneyBonus;
+        this.mentalHealth += mentalHealth;
+        this.energy += energy;
+        this.maxEnergy += maxEnergy;
+        this.maxMentalHealth += maxMentalHealth;
+        this.win = win;
 
-        if (Status.mentalHealth > Status.maxMentalHealth) {
-            Status.mentalHealth = Status.maxMentalHealth;
+        if (win) {
+            this.win();
+            return;
         }
 
-        if (Status.energy > Status.maxEnergy) {
-            Status.energy = Status.maxEnergy;
+        if (this.mentalHealth > this.maxMentalHealth) {
+            this.mentalHealth = this.maxMentalHealth;
         }
 
-        if (Status.money <= 0 || Status.mentalHealth <= 0 || Status.energy <= 0) {
+        if (this.energy > this.maxEnergy) {
+            this.energy = this.maxEnergy;
+        }
+
+        if (this.money <= 0 || this.mentalHealth <= 0 || this.energy <= 0) {
             this.gameOver();
         }
     }

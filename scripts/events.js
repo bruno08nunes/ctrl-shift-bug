@@ -10,19 +10,7 @@ export default class Events {
     }
 
     static applyEffectInStatus(effect) {
-        const money = effect.money;
-        const mentalHealth = effect.mentalHealth;
-        const energy = effect.energy;
-        const maxEnergy = effect.maxEnergy;
-        const maxMentalHealth = effect.maxMentalHealth;
-
-        Status.setAllStatus({
-            money,
-            mentalHealth,
-            energy,
-            maxEnergy,
-            maxMentalHealth,
-        });
+        Status.setAllStatus({ ...effect });
 
         Status.updateStatusElement();
     }

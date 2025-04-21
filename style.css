@@ -277,3 +277,38 @@ h1, h2, h3, button {
     flex-direction: column;
     gap: 5px;
 }
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo do Toast */
+.toast {
+    background-color: var(--background-color);
+    color: var(--color);
+    border: 2px solid currentColor;
+    padding: 20px 30px;
+    border-radius: 5px;
+    font-size: 1.4em;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    max-width: 300px;
+}
+
+/* Animação de aparecer e desaparecer */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hide {
+    opacity: 0;
+    transform: translateY(100px);
+}

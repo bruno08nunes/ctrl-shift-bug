@@ -4,18 +4,167 @@
             "id": "0",
             "title": "Café",
             "text": "Nada como uma boa xícara de café para dar mais energia no trabalho! Ganhe +5 de energia máxima.",
-            "price": 20,
+            "price": 100,
             "effect": {
-                "maxEnergy": 5
+                "maxEnergy": 5,
+                "energy": 5
             }
         },
         {
             "id": "1",
             "title": "Fita de LED",
             "text": "Todo setup de um dev precisa de umas luzinhas para deixar seu código melhor. Ganhe +5 de sanidade máxima",
-            "price": 30,
+            "price": 200,
             "effect": {
-                "maxMentalHealth": 5
+                "maxMentalHealth": 5,
+                "mentalHealth": 5
+            }
+        },
+        {
+            "id": "2",
+            "title": "Almofada Ergonômica",
+            "text": "Nada como uma boa almofada para melhorar a postura nas maratonas de codificação. Ganhe +10 de energia máxima.",
+            "price": 300,
+            "effect": {
+                "energy": 5,
+                "maxEnergy": 5
+            }
+        },
+        {
+            "id": "3",
+            "title": "Fones de Ouvido",
+            "text": "Isolamento perfeito para focar no código, sem distrações. Ganhe +75 de bônus de dinheiro.",
+            "price": 1000,
+            "effect": {
+                "moneyBonus": 75
+            }
+        },    
+        {
+            "id": "4",
+            "title": "Mouse Gamer",
+            "text": "Velocidade e precisão para um controle melhor do seu código e das suas tarefas. Ganhe +50 bônus.",
+            "price": 500,
+            "effect": {
+                "moneyBonus": 50
+            }
+        },
+        {
+            "id": "5",
+            "title": "Agenda de Tarefas do Dev",
+            "text": "A melhor forma de organizar o caos! Planeje suas sprints e nunca mais se perca no código e mantenha sua mente sã. Ganhe +5 de saúde mental máxima.",
+            "price": 400,
+            "effect": {
+                "maxMentalHealth": 5,
+                "mentalHealth": 5
+            }
+        },
+        {
+            "id": "6",
+            "title": "Luz Quente",
+            "text": "Ilumine seu workspace e seu código! Ganhe +5 de energia máxima.",
+            "price": 750,
+            "effect": {
+                "maxEnergy": 5,
+                "energy": 5
+            }
+        },
+        {
+            "id": "7",
+            "title": "Mini Planta para Escrivaninha",
+            "text": "A natureza também precisa de espaço no seu setup. Ganhe +5 de saúde mental máxima.",
+            "price": 1250,
+            "effect": {
+                "maxMentalHealth": 5,
+                "mentalHealth": 5
+            }
+        },
+        {
+            "id": "8",
+            "title": "Assinatura de Música Ambiente",
+            "text": "Para codificar sem distrações. Sons relaxantes para te ajudar a se concentrar e focar no trabalho. Ganhe +5 de saúde mental máxima.",
+            "price": 1750,
+            "effect": {
+                "maxMentalHealth": 5,
+                "mentalHealth": 5
+            }
+        },
+        {
+            "id": "9",
+            "title": "Enter do Stress",
+            "text": "Quando o bug não sai, apertar esse botão vai aliviar a pressão. Ganhe +5 de saúde mental máxima.",
+            "price": 2250,
+            "effect": {
+                "maxMentalHealth": 5,
+                "mentalHealth": 5
+            }
+        },
+        {
+            "id": "10",
+            "title": "Fone de Ouvido com Cancelamento de Ruído",
+            "text": "Mantenha o foco sem interrupções, mesmo no ambiente mais barulhento. Ganhe +200 de bônus de salário.",
+            "price": 2500,
+            "effect": {
+                "moneyBonus": 200
+            }
+        },
+        {
+            "id": "11",
+            "title": "Suporte para Monitor Duplo",
+            "text": "Melhore seu setup com este suporte ergonômico para dois monitores. Ganhe +200 de bônus de salário.",
+            "price": 3000,
+            "effect": {
+                "moneyBonus": 200
+            }
+        },
+        {
+            "id": "12",
+            "title": "Kit de Alongamento",
+            "text": "Alongue-se e relaxe os músculos para se manter energizado ao longo do dia. Ganhe +7 de energia máxima.",
+            "price": 2750,
+            "effect": {
+                "maxEnergy": 5,
+                "energy": 5
+            }
+        },
+        {
+            "id": "13",
+            "title": "Bebida Energética",
+            "text": "Uma dose de energia para continuar o dia sem parar! Ganhe +5 de energia máxima.",
+            "price": 3000,
+            "effect": {
+                "maxEnergy": 5,
+                "energy": 5
+            }
+        },
+        {
+            "id": "14",
+            "title": "Plenitude",
+            "text": "Você ganhou respeito o suficiente pela sua equipe e se tornou um dev pleno.",
+            "price": 2000,
+            "effect": {
+                "moneyBonus": 100,
+                "mentalHealth": 5,
+                "maxMentalHealth": -20
+            }
+        },
+        {
+            "id": "15",
+            "title": "Senioridade",
+            "text": "Você é o desenvolvedor com mais experiência da equipe. Você se torna dev sênior",
+            "price": 5000,
+            "effect": {
+                "moneyBonus": 300,
+                "mentalHealth": 5,
+                "maxMentalHealth": -20
+            }
+        },
+        {
+            "id": "16",
+            "title": "Aposentadoria",
+            "text": "Você conseguiu a tão desejada aposentadoria. Agora pode descansar em paz",
+            "price": 10000,
+            "effect": {
+                "win": true
             }
         }
     ],
@@ -97,7 +246,7 @@
             "title": "Diferença entre Hardware e Software",
             "text": "Você finalmente aprendeu a diferença entre esses dois conceitos. Infelizmente foi na base do chute.",
             "effect": {
-                "money": -2500
+                "money": -900
             }
         },
         {

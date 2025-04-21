@@ -20,7 +20,7 @@ export default class StartGame {
         Codes.codes = data.codes;
         Codes.updateCode();
         
-        Store.items = data.storeItems;
+        Store.items = data.storeItems.sort((a, b) => a.price - b.price);
         Store.listItems();
         
         Inventory.items = [];

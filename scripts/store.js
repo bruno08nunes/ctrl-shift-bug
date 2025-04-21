@@ -5,13 +5,24 @@ export default class Store {
     static items = [];
 
     static buyItem(id) {
-        const index = this.items.findIndex((item) => item.id === id);
+        const storeItems = structuredClone(this.items);
+
+        const index = storeItems.findIndex((item) => item.id === id);
 
         if (index !== -1) {
-            const [removedItem] = this.items.splice(index, 1);
+            const [removedItem] = storeItems.splice(index, 1);
+
+            if (Status.money - removedItem.price <= 0) {
+                alert("Dinheiro insuficiente");
+                return;
+            }
+
+            this.items = storeItems;
+
             Inventory.items.push(removedItem);
             Inventory.listItems();
-            Status.setAllStatus({ money: -removedItem.price });
+
+            Status.setAllStatus({ ...removedItem.effect, money: -removedItem.price });
             Status.updateStatusElement();
         }
     }
