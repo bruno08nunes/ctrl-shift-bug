@@ -112,6 +112,8 @@ h1, h2, h3, button {
 }
 
 .section-events {
+    counter-reset: event-week;
+    gap: 50px;
     & h2 {
         text-align: center;
         font-size: 3em;
@@ -132,6 +134,9 @@ h1, h2, h3, button {
     padding: 15px;
     border: 3px solid currentColor;
     border-radius: 15px;
+    counter-increment: event-week;
+    position: relative;
+    border-top-left-radius: 0;
     
     & h3 {
         font-size: 2.3em;
@@ -140,6 +145,18 @@ h1, h2, h3, button {
     
     & p {
         text-align: justify;
+    }
+
+    &::before {
+        content: "Semana - " counter(event-week);
+        font-family: "Micro 5", 'Courier New', Courier, monospace;
+        font-size: 1.6em;
+        position: absolute;
+        bottom: 100%;
+        left: -2px;
+        border: 3px solid currentColor;
+        border-bottom: none;
+        padding: 6px 10px;
     }
 }
 

@@ -27,6 +27,15 @@ export default class Events {
         Status.updateStatusElement();
     }
 
+    static #createEffectBadge(effect) {
+        return Object.entries(effect).map(([effectName, effectValue]) => {
+            return `<span class="icon">
+                <img src="/assets/${effectName}-icon.svg" style="${window.matchMedia("(prefers-color-scheme: dark)").matches ? "filter: invert()" : ""}"> 
+                ${effectValue > 0 ? `+${effectValue}` : effectValue}
+            </span>`;
+        })
+    }
+
     static createEventElement(inputElement) {
         let { event, index } = this.randomizeEvent(this.events);
 
@@ -68,12 +77,7 @@ export default class Events {
                 <p><span class="result-event-title">Resultado: </span>${action.result}</p>
                 <div class="icons">
                     ${
-                        Object.entries(action.effect).map(([effectName, effectValue]) => {
-                            return `<span class="icon">
-                                <img src="/assets/${effectName}-icon.svg" style="${window.matchMedia("(prefers-color-scheme: dark)").matches ? "filter: invert()" : ""}"> 
-                                ${effectValue > 0 ? `+${effectValue}` : effectValue}
-                            </span>`;
-                        })
+                        this.#createEffectBadge(action.effect).join(" ")
                     }
                 </div>
             `;
@@ -93,6 +97,15 @@ export default class Events {
                     </div>
                     `
                         : ""
+                }
+                ${
+                    event.effect ? `
+                        <div class="icons">
+                        ${
+                            this.#createEffectBadge(event.effect).join(" ")
+                        }
+                        </div>
+                    ` : ""
                 }
             </div>
         `;

@@ -26,9 +26,8 @@ export const handleWriteCode = (e) => {
     }, 200)
     Codes.updateCode();
 
-    if (currentCodeAmount < maxCodeAmount) {
-        currentCodeAmountElement.textContent = currentCodeAmount + 1;
-
+    currentCodeAmountElement.textContent = currentCodeAmount + 1;
+    if ((currentCodeAmount + 1) < maxCodeAmount) {
         return;
     }
     
