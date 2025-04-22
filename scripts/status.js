@@ -30,16 +30,18 @@ export default class Status {
         moneyBonus = 0,
         win = false
     }) {
+        if (money > 0) {
+            this.money += this.moneyBonus
+        }
+        this.money += money;
         this.moneyBonus += moneyBonus;
-        this.money += money + this.moneyBonus;
         this.mentalHealth += mentalHealth;
         this.energy += energy;
         this.maxEnergy += maxEnergy;
         this.maxMentalHealth += maxMentalHealth;
-        this.win = win;
 
         if (win) {
-            this.win();
+            this.winGame();
             return;
         }
 

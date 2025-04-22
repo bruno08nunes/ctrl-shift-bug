@@ -283,11 +283,11 @@ h1, h2, h3, button {
 }
 
 .status-article p {
-    color: red;
+    font-weight: bold;
 }
 
 .status-article span {
-    color: white;
+    font-weight: normal;
 }
 
 .toast-container {

@@ -35,7 +35,7 @@ export const handleWriteCode = (e) => {
     }
 
     Status.currentCodeAmount = 0;
-    Status.maxCodeAmount = 5 + Math.ceil(Status.week / 3);
+    Status.maxCodeAmount = 5;
     currentCodeAmountElement.textContent = Status.currentCodeAmount;
     maxCodeAmountElement.textContent = Status.maxCodeAmount;
 
@@ -48,7 +48,7 @@ export const handleWriteCode = (e) => {
 
     if (Status.week % 4 === 0) {
         // const moneyLose = -500 * Math.ceil((Status.week / 4) || 1);
-        const moneyLose = -600 - (Status.week * 30); // cresce devagar, mas sempre
+        const moneyLose = -600 - (Status.week * 50);
         Status.setAllStatus({ money: moneyLose });
         showToast(`Você gastou com seu aluguel: R$${Math.abs(moneyLose)}`);
     }
