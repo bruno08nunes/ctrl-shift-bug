@@ -31,6 +31,14 @@ body {
 h1 {
     text-align: center;
     font-size: 4em;
+    border-right: 6px solid;
+    width: 12ch;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: auto;
+    animation: digitacao 2s steps(15),
+    piscando 0.5s,
+    sumirBorda 2s forwards 2s;
 }
 
 h1, h2, h3, button {
@@ -323,4 +331,25 @@ h1, h2, h3, button {
 .toast.hide {
     opacity: 0;
     transform: translateY(100px);
+}
+
+
+/* Animação de digitação do título */
+@keyframes digitacao {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes piscando {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes sumirBorda {
+    100% {
+        border-width: 0px;
+        border-color: none;
+    }
 }
