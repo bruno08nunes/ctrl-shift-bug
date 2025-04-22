@@ -15,10 +15,12 @@ export default class Status {
 
     static gameOver() {
         alert("Você perdeu");
+        location.reload();
     }
 
     static winGame() {
         alert("Você venceu");
+        location.reload();
     }
 
     static setAllStatus({
