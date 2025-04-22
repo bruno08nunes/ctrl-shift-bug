@@ -11,7 +11,7 @@ export default class Status {
     static week = 0;
 
     static currentCodeAmount = 0;
-    static maxCodeAmount = 5;
+    static maxCodeAmount = 1;
 
     static gameOver() {
         alert("Você perdeu");

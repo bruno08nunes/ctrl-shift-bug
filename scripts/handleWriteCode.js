@@ -35,7 +35,7 @@ export const handleWriteCode = (e) => {
     }
 
     Status.currentCodeAmount = 0;
-    Status.maxCodeAmount = 5;
+    Status.maxCodeAmount = 1;
     currentCodeAmountElement.textContent = Status.currentCodeAmount;
     maxCodeAmountElement.textContent = Status.maxCodeAmount;
 

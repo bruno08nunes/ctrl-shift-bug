@@ -97,7 +97,7 @@ h1, h2, h3, button {
     
     & pre {
         font-family: 'Courier New', Courier, monospace, sans-serif;
-
+        text-wrap: wrap;
     }
 }
 
