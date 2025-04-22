@@ -35,6 +35,7 @@ h1 {
 
 h1, h2, h3, button {
     font-family: "Micro 5", 'Courier New', Courier, monospace, sans-serif;
+    
 }
 
 .main {
@@ -262,6 +263,9 @@ h1, h2, h3, button {
     & button {
         cursor: pointer;
         font-size: 1.7em;
+        background-color: green;
+        color: white;
+        border: none;
     }
 
     & span {
@@ -276,6 +280,14 @@ h1, h2, h3, button {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.status-article p {
+    color: red;
+}
+
+.status-article span {
+    color: white;
 }
 
 .toast-container {
