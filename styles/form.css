@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Micro+5&display=swap');
+
+:root {
+    --background-color: white;
+    --color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #181A1B;
+        --color: rgba(255, 255, 255, 0.781);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    color: var(--color);
+}
+
+.register-form {
+    border: 2px solid var(--color);;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    background-color: var(--background-color);;
+}
+
+.register-form h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.register-form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--color);;
+    background-color: var(--background-color);;
+    color: var(--color);;
+    font-size: 1em;
+    border-radius: 10px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color);;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 1em;
+}
+
+button[type="submit"]:hover {
+    background-color: color-mix(in srgb, var(--background-color) 80%, var(--color));
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+    border-right: 6px solid;
+    width: 12ch;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: auto;
+    animation: digitacao 2s steps(15),
+    piscando 0.5s,
+    sumirBorda 2s forwards 2s;
+    font-family: "Micro 5", 'Courier New', Courier, monospace;
+    margin-bottom: 30px;
+    color: var(--color);
+}
+
+@keyframes digitacao {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes piscando {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes sumirBorda {
+    100% {
+        border-width: 0px;
+        border-color: none;
+    }
+}

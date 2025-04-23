@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Micro+5&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --background-color: white;
+    --color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #181A1B;
+        --color: rgba(255, 255, 255, 0.781);
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 10px;
+    background-color: var(--background-color);
+    color: var(--color);
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+    border-right: 6px solid;
+    width: 12ch;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: auto;
+    animation: digitacao 2s steps(15),
+    piscando 0.5s,
+    sumirBorda 2s forwards 2s;
+    font-family: "Micro 5", 'Courier New', Courier, monospace;
+    margin-bottom: 30px;
+    color: var(--color);
+}
+
+@keyframes digitacao {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes piscando {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes sumirBorda {
+    100% {
+        border-width: 0px;
+        border-color: none;
+    }
+}
+
+main {
+    max-width: 800px;
+    width: 100%;
+    border: 3px solid currentColor;
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    padding-left: 15px;
+}
+
+p {
+    text-indent: 15px;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+a {
+    display: block;
+    margin-top: 25px;
+    color: var(--color);
+    text-align: center;
+    font-size: 1.5em;
+}

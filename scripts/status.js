@@ -13,7 +13,19 @@ export default class Status {
     static currentCodeAmount = 0;
     static maxCodeAmount = 1;
 
+    static gameOverAlreadyStart = false;
+
     static gameOver() {
+        if (this.gameOverAlreadyStart) {
+            return;
+        }
+        const player = JSON.parse(localStorage.getItem("userData") ?? "{}");
+        const ranking = JSON.parse(localStorage.getItem("ranking") ?? "[]");
+        ranking.push({ name: player.username, score: Status.week });
+        localStorage.setItem("ranking", JSON.stringify(ranking));
+
+        this.gameOverAlreadyStart = true;
+
         alert("Você perdeu");
         location.reload();
     }

@@ -227,7 +227,7 @@ h1, h2, h3, button {
     }
 }
 
-.section-store, .section-inventory {
+.section-store, .section-inventory, .section-menu {
     display: none;
     flex-direction: column;
     gap: 15px;
@@ -296,6 +296,21 @@ h1, h2, h3, button {
 
 .status-article span {
     font-weight: normal;
+}
+
+.section-menu {
+    & a {
+        color: var(--color);
+        text-align: center;
+        border: 1px solid currentColor;
+        padding: 15px;
+        font-size: 2em;
+        font-family: "Micro 5", 'Courier New', Courier, monospace;
+        transition: .4s;
+        &:hover {
+            color: red;
+        }
+    }
 }
 
 .toast-container {
