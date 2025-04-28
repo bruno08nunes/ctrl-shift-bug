@@ -42,7 +42,8 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/rounds", (req, res) => {
-    const sql = `SELECT * FROM rounds order by points desc`;
+    const sql = `SELECT p.name AS name, r.weeks AS weeks FROM rounds r
+    JOIN players p ON r.player_id = p.id ORDER BY r.weeks DESC;`;
     connection.query(sql, (err, result) => {
         if (err) {
             console.log(err);
