@@ -15,14 +15,21 @@ export default class Status {
 
     static gameOverAlreadyStart = false;
 
-    static gameOver() {
+    static async gameOver() {
         if (this.gameOverAlreadyStart) {
             return;
         }
         const player = JSON.parse(localStorage.getItem("userData") ?? "{}");
-        const ranking = JSON.parse(localStorage.getItem("ranking") ?? "[]");
-        ranking.push({ name: player.username, score: Status.week });
-        localStorage.setItem("ranking", JSON.stringify(ranking));
+        await fetch("http://localhost:3000/rounds", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify({
+                player_id: player.id,
+                weeks: this.week
+            })
+        });
 
         this.gameOverAlreadyStart = true;
 

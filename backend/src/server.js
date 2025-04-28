@@ -11,32 +11,16 @@ app.use(express.json());
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swagggerDocument));
 
-app.post("/users", (req, res) => {
-    const {name, age} = req.body;
-    const sql = `INSERT INTO users (name, age) VALUES (?, ?)`;
-    const values = [name, age];
+app.post("/register", (req, res) => {
+    const {name, email, password} = req.body;
+    const sql = `INSERT INTO players (name, email, password) VALUES (?, ?, ?)`;
+    const values = [name, email, password];
     connection.query(sql, values, (err, result) => {
         if (err) {
             console.log(err);
             res.status(500).json({message: "Internal Server Error"});
         } else {
             res.status(201).json({data: result, message: "User Created", success: true});
-        }
-    });
-});
-
-app.get("/login", (req, res) => {
-    const {email, password} = req.body;
-    const sql = `SELECT * FROM users WHERE email = ? AND password = ?`;
-    const values = [email, password];
-    connection.query(sql, values, (err, result) => {
-        if (err) {
-            console.log(err);
-            res.status(500).json({message: "Internal Server Error"});
-        } else if (result.length === 0) {
-            res.status(401).json({message: "Invalid Credentials"});
-        } else {
-            res.status(200).json({data: result[0], message: "Login Successful", success: true});
         }
     });
 });
@@ -55,9 +39,9 @@ app.get("/rounds", (req, res) => {
 });
 
 app.post("/rounds", (req, res) => {
-    const {userId, points} = req.body;
-    const sql = `INSERT INTO rounds (userId, points) VALUES (?, ?)`;
-    const values = [userId, points];
+    const {player_id, weeks} = req.body;
+    const sql = `INSERT INTO rounds (player_id, weeks) VALUES (?, ?)`;
+    const values = [player_id, weeks];
     connection.query(sql, values, (err, result) => {
         if (err) {
             console.log(err);
