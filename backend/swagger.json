@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API Front-end Project",
+        "title": "Ctrl-Shift-Bug API",
         "version": "1.0.0",
-        "description": "A"
+        "description": "API para registrar jogadores e registrar/retratar rodadas."
     },
     "servers": [
         {
@@ -12,28 +12,134 @@
         }
     ],
     "paths": {
-        "/users": {
+        "/register": {
+            "post": {
+                "summary": "Registrar um novo jogador",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Bruno"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bruno@email.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "admin123"
+                                    }
+                                },
+                                "required": ["name", "email", "password"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": { "type": "object" },
+                                        "message": { "type": "string" },
+                                        "success": { "type": "boolean" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor"
+                    }
+                }
+            }
+        },
+        "/rounds": {
             "get": {
-                "summary": "Retorna os usuários",
+                "summary": "Listar todas as rodadas em ordem decrescente de semanas",
                 "responses": {
                     "200": {
-                        "description": "Resposta bem sucedida",
+                        "description": "Rodadas recuperadas com sucesso",
                         "content": {
-                            "application/json": [
-                                {
-                                    "name": "Bruno",
-                                    "age": 17
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Bruno"
+                                                    },
+                                                    "weeks": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "message": { "type": "string" },
+                                        "success": { "type": "boolean" }
+                                    }
                                 }
-                            ]
+                            }
                         }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor"
                     }
                 }
             },
             "post": {
-                "summary": "Adiciona os usuários",
+                "summary": "Cadastrar uma nova rodada do jogador",
+                "description": "Cria uma nova rodada para o jogador especificado.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "player_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "weeks": { "type": "integer", "example": 4 }
+                                },
+                                "required": ["player_id", "weeks"]
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "201": {
-                        "description": "Adiciona os usuários"
+                        "description": "Rodada criada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": { "type": "object" },
+                                        "message": { "type": "string" },
+                                        "success": { "type": "boolean" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor"
                     }
                 }
             }
